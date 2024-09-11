@@ -106,6 +106,65 @@ const Header = () => {
    </div>
 </aside>
 
+<div class="p-4 sm:ml-64">
+
+<div>
+
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-4">
+
+   <h1 class="text-2xl font-bold mb-6">Tableau de Bord</h1>
+   
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+       <div class="col-span-1 md:col-span-1 lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500">Nombres d'utilisateur</h2>
+           <p>Contenu pour la section 1.</p>
+       </div>
+
+       <div class="col-span-1 md:col-span-1 lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500">Nombres d'admis</h2>
+           <p>Contenu pour la section 2.</p>
+       </div>
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500">Nombres de présence</h2>
+           <p>Contenu pour la section 3.</p>
+       </div>
+
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500"> Nombres de photos</h2>
+           <p>Contenu pour la section 4.</p>
+       </div>
+
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500 p-2 rounded-lg w-40">Prédiction du modèle</h2>
+           <p>Contenu pour la section 5.</p>
+       </div>
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500 p-2 rounded-lg w-40">Prédiction du modèle</h2>
+           <p>Contenu pour la section 5.</p>
+       </div>
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500 p-2 rounded-lg w-40">Prédiction du modèle</h2>
+           <p>Contenu pour la section 5.</p>
+       </div>
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500 p-2 rounded-lg w-40">Prédiction du modèle</h2>
+           <p>Contenu pour la section 5.</p>
+       </div>
+       <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-md">
+           <h2 class="font-semibold mb-2 text-center bg-blue-500 p-2 rounded-lg w-40">Prédiction du modèle</h2>
+           <p>Contenu pour la section 5.</p>
+       </div>
+
+   </div>
+
+</div>
+
+</body>
+</div>
+</div>
 
                 </div>
               

@@ -1,18 +1,16 @@
 import React from 'react';
 import Body from '../components/Public/Body';
 import NavBar from '../components/NavBar';
+import Inscription from '../components/Public/Inscription';
 
-
-const Home = () => {
+const Services = () => {
     return (
         <div>
-            <nav>
-            <Body/>
-            <NavBar/>
-            </nav>
+        <NavBar/>
+        <Body/>
+        <Inscription />
         </div>
-        
     );
 };
 
-export default Home;
+export default Services;
