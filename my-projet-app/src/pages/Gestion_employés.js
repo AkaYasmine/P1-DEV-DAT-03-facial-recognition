@@ -1,10 +1,11 @@
 import React from 'react';
 import Body from '../components/Public/Body';
+import NavBar from '../components/NavBar';
 
 const Services = () => {
     return (
         <div>
-        Interface Gestion employées
+        <NavBar/>
         <Body/>
             
         </div>
