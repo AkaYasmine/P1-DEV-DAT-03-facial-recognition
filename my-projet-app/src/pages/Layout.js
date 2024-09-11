@@ -1,15 +1,17 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Body from '../components/Public/Body';
 import NavBar from '../components/Public/NavBar';
 
-const Services = () => {
+
+const Layout = () => {
     return (
         <div>
-            Interface Gestion employés
-            <NavBar/>
             <Body/>
+            <NavBar/>
+            <Outlet/>
         </div>
     );
 };
 
-export default Services;
+export default Layout;

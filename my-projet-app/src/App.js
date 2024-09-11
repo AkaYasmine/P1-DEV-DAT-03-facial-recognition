@@ -5,6 +5,8 @@ import Gestion_employés from './pages/Gestion_employés'
 import Pointage_employées from './pages/Pointage_employés';
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
 import Errors from './_utils.js/Errors';
+import Login from './pages/Auth.js/Login';
+
 
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
             <Route path ="/Home" element={<Home/>}/>
             <Route path ="/Gestion_employés" element={<Gestion_employés/>}/>
             <Route path ="/Pointage_employés" element={<Pointage_employées/>}/>
+            <Route path ="/Login" element={<Login/>}/>
+           
+            
 
-            {/* S'exécute lorsqu'une route n'est trouvée*/}
+
             <Route path ="*" element={<Errors/>}/>
           </Routes>
         </BrowserRouter>
