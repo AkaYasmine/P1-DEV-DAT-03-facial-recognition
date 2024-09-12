@@ -1,7 +1,7 @@
 import React from 'react';
 import Body from '../components/Public/Body';
 import NavBar from '../components/Public/NavBar';
-import Gestion_employés from '../components/Public/Gestion_employés';
+import Prise_photo from '../components/Public/Prise_photo';
 
 
 const Services = () => {
@@ -9,7 +9,7 @@ const Services = () => {
         <div>
             <NavBar/>
             <Body/> 
-            <Gestion_employés/> 
+            <Prise_photo/> 
 
         </div>
     );

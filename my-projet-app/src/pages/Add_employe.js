@@ -1,7 +1,7 @@
 import React from 'react';
 import Body from '../components/Public/Body';
 import NavBar from '../components/Public/NavBar';
-import Gestion_employés from '../components/Public/Gestion_employés';
+import Add_employe from '../components/Public/Add_employe';
 
 
 const Services = () => {
@@ -9,8 +9,7 @@ const Services = () => {
         <div>
             <NavBar/>
             <Body/> 
-            <Gestion_employés/> 
-
+            <Add_employe/> 
         </div>
     );
 };
