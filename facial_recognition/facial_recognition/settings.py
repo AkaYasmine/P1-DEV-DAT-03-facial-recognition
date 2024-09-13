@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -108,11 +109,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # White listing the localhost:3000 port
 # for React
 CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:8000',
     'http://localhost:3000',
 )
- 
-
-
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

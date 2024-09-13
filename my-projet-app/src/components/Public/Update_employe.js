@@ -32,7 +32,7 @@ const Header = () => {
     
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.put('http://127.0.0.1:8000/api/tasks/'+id, inputData)
+        axios.put('http://127.0.0.1:8000/api/tasks/'+id+'/', inputData)
         .then(res => {
             alert("Les informations de l'employé ont été modifier avec succès")
             navigate('/Gestion_employés')

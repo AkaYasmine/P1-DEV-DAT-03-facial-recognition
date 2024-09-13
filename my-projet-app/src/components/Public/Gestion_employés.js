@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
    const [data, setData] = useState([])
-   const navigate = useNavigate()
+   // const navigate = useNavigate()
 
    useEffect(() => {
       axios.get('http://127.0.0.1:8000/api/tasks/')
