@@ -2,7 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      "grad": "rgb(141,63,251)"
+
+    },
   },
   plugins: [],
 }

@@ -5,9 +5,12 @@ import Gestion_employés from './pages/Gestion_employés'
 import Pointage_employées from './pages/Pointage_employés';
 import Inscription from './pages/Inscription';
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
-import Errors from './_utils.js/Errors';
 import Connexion from './components/Public/Connexion';
 import Interface from './components/Public/Interface';
+import AdmissionsBarChart from './components/Public/AdmissionsBarChart';
+import PresencePieChart from './components/Public/PresencePieChart';
+import PredictionLineChart from './components/Public/PredictionLineChart';
+import UserChart from './components/Public/UserChart';
 
 function App() {
   return (
@@ -20,11 +23,11 @@ function App() {
             <Route path ="/Pointage_employés" element={<Pointage_employées/>}/>
             <Route path ="/Inscription" element={<Inscription/>}/>
             <Route path ="/Connexion" element={<Connexion/>}/>
-            <Route path ="/Connexion" element={<Connexion/>}/>
             <Route path ="/Interface" element={<Interface/>}/>
-
-            {/* S'exécute lorsqu'une route n'est trouvée*/}
-            <Route path ="*" element={<Errors/>}/>
+            <Route path ="/AdmissionsBarChart" element= {<AdmissionsBarChart/>}/>
+            <Route path ="/PresencePieChart"element= {<PresencePieChart/>}/>
+            <Route path= "/UserChart" element={<UserChart/>}/>
+            <Route path= "/PredictionLineChart" element={<PredictionLineChart/>}/>
           </Routes>
         </BrowserRouter>
     </div>
