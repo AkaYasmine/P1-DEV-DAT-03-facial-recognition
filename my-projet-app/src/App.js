@@ -11,6 +11,7 @@ import AdmissionsBarChart from './components/Public/AdmissionsBarChart';
 import PresencePieChart from './components/Public/PresencePieChart';
 import PredictionLineChart from './components/Public/PredictionLineChart';
 import UserChart from './components/Public/UserChart';
+import  Homepage from './components/Public/Homepage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path ="/PresencePieChart"element= {<PresencePieChart/>}/>
             <Route path= "/UserChart" element={<UserChart/>}/>
             <Route path= "/PredictionLineChart" element={<PredictionLineChart/>}/>
+            <Route path = "/Homepage" element={<Homepage/>}/>
           </Routes>
         </BrowserRouter>
     </div>
