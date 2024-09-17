@@ -1,13 +1,15 @@
 import React from 'react';
 import Body from '../components/Public/Body';
 import NavBar from '../components/Public/NavBar';
+import Pointage_card from '../components/Public/Pointage_card';
 
 const Pointage_employées = () => {
     return (
         <div>
-            Interface poinatge employés
-            <NavBar/>
-            <Body/>  
+          INTERFACE POINTAGE DES EMPLOYES 
+         <NavBar/>
+         <Body/>
+         <Pointage_card/>
         </div>
     );
 };

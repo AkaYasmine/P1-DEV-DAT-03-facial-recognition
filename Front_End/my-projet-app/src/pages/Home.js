@@ -5,6 +5,7 @@ import NavBar from '../components/Public/NavBar';
 const Home = () => {
     return (
         <div>
+            Page d'acceuil
             <nav>
                 <NavBar/>
                 <Body/>
