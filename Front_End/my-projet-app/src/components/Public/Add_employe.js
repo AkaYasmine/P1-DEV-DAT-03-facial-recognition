@@ -32,8 +32,15 @@ const Header = () => {
     // }, [])
     
     const handleSubmit = (event) =>{
+        const token = localStorage.getItem('access_token');
         event.preventDefault();
-        axios.post('http://127.0.0.1:8000/api/tasks/', inputData)
+        axios.post('http://127.0.0.1:8000/api/tasks/', inputData,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        )
         .then(res => {
             alert("Les informations de l'employé ont été ajouter avec succès")
             navigate('/Gestion_employés')

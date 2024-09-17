@@ -27,7 +27,7 @@ export const Login = () => {
                
            axios.defaults.headers.common['Authorization'] = 
                                          `Bearer ${data['access']}`;         
-                                         window.location.href = '/'    
+                                         window.location.href = '/Gestion_employés'    
                                         
     }   
     return(      

@@ -8,8 +8,8 @@ class interface_crud_employe(models.Model):
     prenom = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)
-    photo = models.CharField(max_length=100)
-    
+    #photo = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.nom

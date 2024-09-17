@@ -4,16 +4,90 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {UseNavigate} from 'react'
+import user from '/home/wecode/Rendu/P1-DEV-DAT-03-facial-recognition/Front_End/my-projet-app/src/components/Public/Login.js';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const Header = () => {
-   const [data, setData] = useState([])
-   useEffect(() => {
-      axios.get('http://127.0.0.1:8000/api/tasks/')
-         .then(res => setData(res.data))
-         .catch(err => console.log(err))
+// const Header = () => {
+//    const [data, setData] = useState([])
 
-   }, [])
+//    const token = localStorage.getItem('acces')
+
+//    useEffect(() => {
+//       axios.get('http://127.0.0.1:8000/api/tasks/',user,{headers: {'Content-Type': 'application/json','Authorization':`Bearer ${data['access']}`}})
+//          .catch(err => console.log(err))
+
+//    }, [])
+// const Header = () => {
+//    const [data, setData] = useState([])
+
+//    const token = localStorage.getItem('access_token')
+//    useEffect(() => {
+//       axios.get('http://127.0.0.1:8000/api/tasks/',{
+//          header: {
+//             'Authorization' : `Bearer ${token}`
+//          }
+//       })
+//          .then(res => setData(res.data))
+//          .catch(err => console.log(token))
+
+//    }, [])
+//    console.log(token)
+
+// ###################################################################################################
+// const Header = () => {
+//    const [data, setData] = useState([]);
+
+//    useEffect(() => {
+//       const username = 'Yasmine';  
+//       const password = 'yasmine';  
+//       const token = btoa(`${username}:${password}`);  
+
+//       axios.get('http://127.0.0.1:8000/api/tasks/', {
+//          headers: {
+//             'Authorization': `Basic ${token}`
+//          }
+//       })
+//       .then(res => setData(res.data))
+//       .catch(err => console.log(err));
+// ###################################################################################################
+
+//    }, []);
+const Header = () => {
+   const [data, setData] = useState([]);
+
+   useEffect(() => {
+      const token = localStorage.getItem('access_token');
+      if (token) {
+         axios.get('http://127.0.0.1:8000/api/tasks/', {
+            headers: {
+               'Authorization': `Bearer ${token}`
+            }
+         })
+         .then(res => setData(res.data))
+         .catch(err => console.log(err));
+      } else {
+         console.log("Pas de token d'acces dans le localStorage");
+      }
+   }, []);
+
+   // useEffect(() => {
+   //    const token = localStorage.getItem('token') 
+   
+   //    axios.get('http://127.0.0.1:8000/api/tasks/', {
+   //       headers: {
+   //          'Authorization': Bearer ${token}
+   //       }
+   //    })
+   // })
+   //  localStorage.clear();        
+   //        localStorage.setItem('access_token', data.access);         
+   //        localStorage.setItem('refresh_token', data.refresh);
+               
+   //         axios.defaults.headers.common['Authorization'] = 
+   //                                       `Bearer ${data['access']}`;         
+   //                                     //   window.location.href = '/'    
+                                        
+   
 
 
    return (
@@ -374,8 +448,15 @@ const Header = () => {
 
 function handleDelete(id){
    const confirm = window.confirm("Voulez vous supprimer cet employé ?");
+   const token = localStorage.getItem('access_token');
    if (confirm) {
-      axios.delete('http://127.0.0.1:8000/api/tasks/'+id+'/')
+      axios.delete('http://127.0.0.1:8000/api/tasks/'+id+'/',
+         {
+            headers: {
+               'Authorization': `Bearer ${token}`
+            }
+         }
+      )
       const navigate = UseNavigate()
       .then(res => {
          alert("Supprimer");
