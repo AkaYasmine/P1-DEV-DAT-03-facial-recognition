@@ -14,21 +14,16 @@ const Header = () => {
         prenom:'',
         email:'',
         contact:'',
-        photo:''
+        photo:'',
     });
 
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     axios.get('http://127.0.0.1:8000/api/tasks/'+id)
-    //     .then(res => setInputData(res.data))
-    //     .catch(err => console.log(err))
-    // }, [])
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/tasks/'+id)
         .then(res => setInputData(res.data))
         .catch(err => console.log(err))
-    })
+    },[])
     
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -51,7 +46,7 @@ const Header = () => {
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                     <div class="sm:col-span-2">
                                         <label htmlFor='nom' for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
-                                        <input type="text" value={inputData.nom} onChange={e => setInputData({...inputData, nom: e.target.value})} name="nom" id="nom" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Aa" required="" />
+                                        <input type="text" value={inputData.nom} onChange={(e) => setInputData({ ...inputData, nom: e.target.value })} name="nom"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  required="" />
                                     </div>
                                     <div class="sm:col-span-2">
                                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prenom</label>
