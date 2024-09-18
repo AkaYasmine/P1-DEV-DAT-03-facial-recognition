@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.urls import path ,include
 from interface_crud_employe import views
 from rest_framework import routers
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter() 
 router.register(r'tasks',views.interface_crud_employeView, 'task')
@@ -15,3 +17,4 @@ urlpatterns = [
     path('', include('InscriptionAdmin.urls')),
     path('api/', include(router.urls))
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,3 +11,5 @@ class interface_crud_employeSerializer(serializers.ModelSerializer):
     class Meta:
         model = interface_crud_employe
         fields = ("id","nom","prenom","email","contact","photo")
+
+ 

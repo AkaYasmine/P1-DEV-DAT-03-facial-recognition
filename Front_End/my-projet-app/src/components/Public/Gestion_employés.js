@@ -4,9 +4,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {UseNavigate} from 'react'
-import user from '/home/wecode/Rendu/P1-DEV-DAT-03-facial-recognition/Front_End/my-projet-app/src/components/Public/Login.js';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+ 
 // const Header = () => {
 //    const [data, setData] = useState([])
 
@@ -52,9 +50,9 @@ import user from '/home/wecode/Rendu/P1-DEV-DAT-03-facial-recognition/Front_End/
 // ###################################################################################################
 
 //    }, []);
-const Header = () => {
-   const [data, setData] = useState([]);
-
+const Gestion_employe = () => {
+    const [data, setData] = useState([]);
+ 
    useEffect(() => {
       const token = localStorage.getItem('access_token');
       if (token) {
@@ -66,30 +64,10 @@ const Header = () => {
          .then(res => setData(res.data))
          .catch(err => console.log(err));
       } else {
-         console.log("Pas de token d'acces dans le localStorage");
+         console.log("Pas de token d'accès dans le localStorage");
       }
    }, []);
-
-   // useEffect(() => {
-   //    const token = localStorage.getItem('token') 
-   
-   //    axios.get('http://127.0.0.1:8000/api/tasks/', {
-   //       headers: {
-   //          'Authorization': Bearer ${token}
-   //       }
-   //    })
-   // })
-   //  localStorage.clear();        
-   //        localStorage.setItem('access_token', data.access);         
-   //        localStorage.setItem('refresh_token', data.refresh);
-               
-   //         axios.defaults.headers.common['Authorization'] = 
-   //                                       `Bearer ${data['access']}`;         
-   //                                     //   window.location.href = '/'    
-                                        
-   
-
-
+ 
    return (
       <div>
          <header>
@@ -229,16 +207,18 @@ const Header = () => {
                                                 <td class="px-4 py-3">{d.email}</td>
                                                 {/* <td class="px-4 py-3 max-w-[12rem] truncate">What is a product description? A product description describes a product.</td> */}
                                                 <td class="px-4 py-3">{d.contact}</td>
-                                                <td class="px-4 py-3">
-                                                   {d.image}
-                                                   {/* <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png" alt="iMac Front Image" class="h-8 w-auto mr-3" /> */}
+ 
+                                                <td class="px-4 py-3"  >
+                                                   {/* { d.photo} */}
+                                                   <img src={` ${d.photo}`} alt="Image" className="h-8 w-auto mr-3" />
                                                 </td>
+                                           
                                                 <td class="px-4 py-3 flex items-center justify-end">
-                                                   <button id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown" class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-white-400 dark:hover:text-gray-100" type="button">
+                                                   {/* <button onClick={() => setOpenProfil( (prev) => !prev)} id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown" class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-white-400 dark:hover:text-gray-100" type="button">
                                                       <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                                                       </svg>
-                                                   </button>
+                                                   </button> */}
                                                    {/* <div id="apple-imac-27-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"> */}
                                                       <ul class="py-1 text-sm" aria-labelledby="apple-imac-27-dropdown-button">
                                                          <li>
@@ -464,5 +444,5 @@ function handleDelete(id){
       })
    }
 }
-
-export default Header;
+ 
+export default Gestion_employe;
