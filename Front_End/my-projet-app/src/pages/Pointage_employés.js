@@ -6,7 +6,6 @@ import Pointage_card from '../components/Public/Pointage_card';
 const Pointage_employées = () => {
     return (
         <div>
-          INTERFACE POINTAGE DES EMPLOYES 
          <NavBar/>
          <Body/>
          <Pointage_card/>

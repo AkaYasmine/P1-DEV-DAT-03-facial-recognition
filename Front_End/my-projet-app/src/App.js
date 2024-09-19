@@ -11,7 +11,12 @@ import Prise_photo from './pages/Prise_photo';
 import Add_employe from './pages/Add_employe';
 import Update_employe from './pages/Update_employe';
 // import genere_password from './pages/genere_password';
-
+import Interface from './pages/Interface';
+import AdmissionsBarChart from './components/Public/AdmissionsBarChart';
+import PresencePieChart from './components/Public/PresencePieChart';
+import PredictionLineChart from './components/Public/PredictionLineChart';
+import UserChart from './components/Public/UserChart';
+import  Homepage from './components/Public/Homepage';
 
 
 
@@ -30,6 +35,13 @@ function App() {
             <Route path ="/Add_employe/" element={<Add_employe />}/>
             <Route path ="/Update_employe/:id" element={<Update_employe />}/>
             {/* <Route path ='/genere_password' element={<genere_password/>}/> */}
+            <Route path ="/Interface" element={<Interface/>}/>
+            <Route path ="/AdmissionsBarChart" element= {<AdmissionsBarChart/>}/>
+            <Route path ="/PresencePieChart"element= {<PresencePieChart/>}/>
+            <Route path= "/UserChart" element={<UserChart/>}/>
+            <Route path= "/PredictionLineChart" element={<PredictionLineChart/>}/>
+            <Route path = "/Homepage" element={<Homepage/>}/>
+
             <Route path ="*" element={<Errors/>}/>
           </Routes>
         </BrowserRouter>
