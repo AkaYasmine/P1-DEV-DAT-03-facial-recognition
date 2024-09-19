@@ -5,76 +5,58 @@ import  { useNavigate } from 'react-router-dom'
 import { useEffect  } from 'react'
 import { useParams } from 'react-router-dom'
 
-
-
-
-const Update  = ( ) => {
-    const {id} = useParams();
-    const navigate = useNavigate()
-    const [photo, setPhoto] = useState(null);
-    const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
-    const [email, setEmail] = useState(''); 
-    const [contact, setContact] = useState('');
-
-    const [task, setTask] = useState(null);
- 
-    useEffect(() => {
-       const token = localStorage.getItem('access_token');
-       if (token) {
-          // Récupérer les données de la tâche à mettre à jour
-          axios.get(`http://127.0.0.1:8000/api/tasks/${id}/`, {
-             headers: {
-                'Authorization': `Bearer ${token}`
-             }
-          })
-          .then(res => {
-             setTask(res.data);
-             setPhoto(res.data.photo);  
-             setNom(res.data.nom);  
-             setPrenom(res.data.prenom);  
-             setEmail(res.data.email);  
-             setContact(res.data.contact);  
-
-          })
-          .catch(err => console.log(err));
-       }
-    }, [id]);
- 
-    const handleFileChange = (e) => {
-       setPhoto(e.target.files[0]);
-    };
- 
-    const handleSubmit = (e) => {
-       e.preventDefault();
- 
-       const formData = new FormData();
-       if (photo) formData.append('photo', photo);  // Ne mettre à jour l'image que si elle est changée
-       formData.append('nom', nom);
-       formData.append('prenom', prenom);
-       formData.append('email', email); 
-       formData.append('contact', contact);
-
- 
-       const token = localStorage.getItem('access_token');
-       axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, formData, {
-        headers: {
-             'Authorization': `Bearer ${token}`,
-             'Content-Type': 'multipart/form-data'
-          }
-       })
-       .then(res => {
-          console.log('Tâche mise à jour avec succès:', res.data);
-       })
-       .then(res => {
-        alert("Les informations de l'employé ont été modifier avec succès")
-        navigate('/Gestion_employés')
-        })    
-       .catch(err => {
-          console.error(err);
-       });
-    }; 
+const Update = () => {
+      const {id} = useParams();
+      const navigate = useNavigate();
+      const [photo, setPhoto] = useState(null);
+      const [nom, setNom] = useState('');
+      const [prenom, setPrenom] = useState('');
+      const [email, setEmail] = useState('');
+      const [contact, setContact] = useState('');
+  
+      const handleFileChange = (e) => {
+         setPhoto(e.target.files[0]);
+      };
+        const token = localStorage.getItem('access_token');
+        useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/tasks/'+id ,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        )
+        .then(res => {
+            console.log(res.data);
+         })
+        .catch(err => console.log(err))
+    } )
     
+ 
+      const handleSubmit = (e) => {
+         e.preventDefault();
+ 
+     // Créer un objet FormData pour envoyer les données
+         const formData = new FormData();
+         formData.append('photo', photo);
+         formData.append('nom', nom); 
+         formData.append('prenom', prenom); 
+         formData.append('email', email); 
+         formData.append('contact', contact); 
+ 
+         axios.put('http://127.0.0.1:8000/api/tasks/'+id+'/', formData ,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+         )  
+         .then(res => {
+                    alert("Les informations de l'employé ont été modifier avec succès")
+                    navigate('/Gestion_employés')
+             })    
+        };
+ 
     return (
         <div>
             <header>

@@ -8,9 +8,7 @@ import { useParams } from 'react-router-dom'
 
 
 
-const Update  = ( ) => {
-    const {id} = useParams();
-    const navigate = useNavigate()
+const Update  = ({ id }) => {
     const [photo, setPhoto] = useState(null);
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
@@ -30,11 +28,10 @@ const Update  = ( ) => {
           })
           .then(res => {
              setTask(res.data);
-             setPhoto(res.data.photo);  
-             setNom(res.data.nom);  
-             setPrenom(res.data.prenom);  
-             setEmail(res.data.email);  
-             setContact(res.data.contact);  
+             setNom(res.data.nom);  // Préremplir la description
+             setPrenom(res.data.prenom);  // Préremplir la description
+             setEmail(res.data.email);  // Préremplir la description
+             setContact(res.data.contact);  // Préremplir la description
 
           })
           .catch(err => console.log(err));
@@ -58,7 +55,7 @@ const Update  = ( ) => {
  
        const token = localStorage.getItem('access_token');
        axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, formData, {
-        headers: {
+          headers: {
              'Authorization': `Bearer ${token}`,
              'Content-Type': 'multipart/form-data'
           }
@@ -66,15 +63,67 @@ const Update  = ( ) => {
        .then(res => {
           console.log('Tâche mise à jour avec succès:', res.data);
        })
-       .then(res => {
-        alert("Les informations de l'employé ont été modifier avec succès")
-        navigate('/Gestion_employés')
-        })    
        .catch(err => {
           console.error(err);
        });
-    }; 
+    };
+ 
+    if (!task) {
+       return <div>Chargement des données...</div>;  // Afficher un loader si les données ne sont pas encore chargées
+    }
+ 
+// const Update = () => {
+//       const {id} = useParams();
+//       const navigate = useNavigate();
+//       const [photo, setPhoto] = useState(null);
+//       const [nom, setNom] = useState('');
+//       const [prenom, setPrenom] = useState('');
+//       const [email, setEmail] = useState('');
+//       const [contact, setContact] = useState('');
+  
+    //   const handleFileChange = (e) => {
+    //      setPhoto(e.target.files[0]);
+    //   };
+    //     const token = localStorage.getItem('access_token');
+    //     useEffect(() => {
+    //     axios.get('http://127.0.0.1:8000/api/tasks/'+id ,
+    //         {
+    //             headers: {
+    //                 'Authorization': `Bearer ${token}`
+    //             }
+    //         }
+    //     )
+    //     .then(res => {
+    //         console.log(res.data);
+    //      })
+    //     .catch(err => console.log(err))
+    // } )
     
+ 
+    //   const handleSubmit = (e) => {
+    //      e.preventDefault();
+ 
+    //  // Créer un objet FormData pour envoyer les données
+    //      const formData = new FormData();
+    //      formData.append('photo', photo);
+    //      formData.append('nom', nom); 
+    //      formData.append('prenom', prenom); 
+    //      formData.append('email', email); 
+    //      formData.append('contact', contact); 
+ 
+    //      axios.put('http://127.0.0.1:8000/api/tasks/'+id+'/', formData ,
+    //         {
+    //             headers: {
+    //                 'Authorization': `Bearer ${token}`
+    //             }
+    //         }
+    //      )  
+    //      .then(res => {
+    //                 alert("Les informations de l'employé ont été modifier avec succès")
+    //                 navigate('/Gestion_employés')
+    //          })    
+    //     };
+ 
     return (
         <div>
             <header>

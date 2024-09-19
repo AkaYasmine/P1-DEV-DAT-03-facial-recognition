@@ -1,6 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
+import  { useNavigate } from 'react-router-dom'
+
 const Header = () => {
+
+    
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+       // Supprimer le token
+       localStorage.removeItem('access_token'); 
+       localStorage.removeItem('refresh_token'); 
+
+        navigate('/Login');
+    };
+ 
     return (
         <div>
             <button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -76,13 +90,13 @@ const Header = () => {
                         </li>
 
                         <li>
-                            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <Link onClick={ handleLogout} href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
                                 </svg>
 
                                 <span class="flex-1 ms-3 whitespace-nowrap">Déconnexion</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

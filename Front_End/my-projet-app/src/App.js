@@ -16,10 +16,10 @@ import AdmissionsBarChart from './components/Public/AdmissionsBarChart';
 import PresencePieChart from './components/Public/PresencePieChart';
 import PredictionLineChart from './components/Public/PredictionLineChart';
 import UserChart from './components/Public/UserChart';
-import  Homepage from './components/Public/Homepage';
+import Homepage from './components/Public/Homepage';
+import RoutesPriveAdmin from './components/Public/RoutesPriveAdmin';
 
-
-
+ 
 function App() {
   return (
     <div className="App">
@@ -27,9 +27,9 @@ function App() {
           <Routes>
             <Route index element={<Home/>}/>
             <Route path ="/Home" element={<Home/>}/>
-            <Route path ="/Gestion_employés" element={<Gestion_employés/>}/>
+            <Route path ="/Gestion_employés" element={<proteger_route><Gestion_employés/></proteger_route>}/>
             <Route path ="/Pointage_employés" element={<Pointage_employées/>}/>
-            <Route path ='Login' element={<Login/>}/>
+            <Route path ='/Login' element={<Login/>}/>
             <Route path ='Register' element={<LogoutPages/>}/>
             <Route path ="/Prise_photo" element={<Prise_photo />}/>
             <Route path ="/Add_employe/" element={<Add_employe />}/>
