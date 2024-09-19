@@ -27,7 +27,7 @@ const Pointage_card = () => {
                           <th class="px-5 py-3">Email </th>
                           <th class="px-5 py-3">Numéro de Télephone </th>
                           <th class="px-5 py-3">Date</th>
-                          <th class="px-5 py-3">  Heure d'arrivée</th>
+                          <th class="px-5 py-3"> Heure d'arrivée</th>
                           <th class="px-5 py-3">Status</th>
                         </tr>
                       </thead>

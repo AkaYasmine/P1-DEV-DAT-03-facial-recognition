@@ -1,14 +1,12 @@
 import React from 'react';
-import Body from '../components/Public/Body';
-import NavBar from '../components/Public/NavBar';
+import Homepage from '../components/Public/Homepage'
+
 
 const Home = () => {
     return (
         <div>
-            Page d'acceuil
             <nav>
-                <NavBar/>
-                <Body/>
+                <Homepage/>
             </nav>
         </div>
         
