@@ -1,18 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import  { useNavigate } from 'react-router-dom'
-
+ 
 const Header = () => {
-
-    
-    const navigate = useNavigate();
-
+ 
     const handleLogout = () => {
        // Supprimer le token
        localStorage.removeItem('access_token'); 
-       localStorage.removeItem('refresh_token'); 
-
-        navigate('/Login');
+       localStorage.removeItem('refresh_token');  
+       window.location.href = '/Login'
     };
  
     return (
@@ -67,7 +62,7 @@ const Header = () => {
                                     <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M4 18V8a1 1 0 0 1 1-1h1.5l1.707-1.707A1 1 0 0 1 8.914 5h6.172a1 1 0 0 1 .707.293L17.5 7H19a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" />
                                     <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                 </svg>
-                                <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Prise de photo</span>
+                                <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Pointage</span>
                             </button>
                         </li>
                         <li>
@@ -85,7 +80,7 @@ const Header = () => {
                                     <path fill-rule="evenodd" d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z" clip-rule="evenodd" />
                                 </svg>
 
-                                <span class="flex-1 ms-3 whitespace-nowrap">Pointages employés</span>
+                                <span class="flex-1 ms-3 whitespace-nowrap">Présence des employés</span>
                             </a>
                         </li>
 
