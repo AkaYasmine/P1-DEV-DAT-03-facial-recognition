@@ -1,9 +1,32 @@
 import React from 'react';
-import AdmissionsBarChart from './AdmissionsBarChart ';
 import PresencePieChart from '../Public/PresencePieChart';
 import UserChart from '../Public/UserChart';
+import axios from 'axios'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const Header = () => {
+   const [data, setData] = useState([]);
+
+   useEffect(() => {
+      const token = localStorage.getItem('access_token');
+      if (token) {
+         axios.get('http://127.0.0.1:8000/api/tasks/', {
+            headers: {
+               'Authorization': `Bearer ${token}`
+            }
+         })
+            .then(res => {
+               setData(res.data);
+               console.log(res.data);
+               const nbr = res.data.length; // Récupérer la longueur des données
+               console.log(nbr); // Afficher la longueur
+            })
+            .catch(err => console.log(err));
+      } else {
+         console.log("Pas de token d'accès dans le localStorage");
+      }
+   }, []);
    return (
       <div>
          <header>
@@ -92,7 +115,7 @@ const Header = () => {
                            <div className='containers grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-80'>
                               <div className="bg-green-600 p-6 rounded-lg shadow-md h-100 flex flex-col items-center justify-center">
                                  <h2 className="font-semibold mb-2 text-center text-white p-2 rounded">Nombres d'utilisateurs</h2>
-                                 <div className="text-4xl font-bold mb-4 text-white">38</div>
+                                 <div className="text-4xl font-bold mb-4 text-white">{data.length}</div>
                               </div>
                               <div className="bg-pink-500 p-6 rounded-lg shadow-md h-100 flex flex-col items-center justify-center">
                                  <h2 className="font-semibold mb-2 text-center text-white p-2 rounded">Nombres de présences</h2>
@@ -106,9 +129,6 @@ const Header = () => {
                            <div className="flex w-full mt-8 space-x-4 ">
                               <div className="flex-1">
                                  <UserChart />
-                              </div>
-                              <div className="flex-1 h-100 item">
-                                 <AdmissionsBarChart />
                               </div>
                               <div className="flex-1">
                                  <PresencePieChart />

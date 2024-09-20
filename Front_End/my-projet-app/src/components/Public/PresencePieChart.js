@@ -1,4 +1,3 @@
-// src/components/PresencePieChart.js
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -7,19 +6,24 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PresencePieChart = () => {
   const data = {
-    labels: ['Présences', 'Absences'],
+    labels: ['Absences', 'Présences'],
     datasets: [
       {
-        label: 'Répartition des présences',
-        data: [567, 50],
-        backgroundColor: ['rgba(54, 162, 235, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+        label: 'Nombre de Absences ',
+        data: [567, 50], // Assure-toi que ces valeurs représentent les présences et absences
+        backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)'],
         borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
         borderWidth: 1,
       },
     ],
   };
 
-  return <Pie data={data} />;
+  return (
+    <div>
+      <h2>Répartition des Absents</h2>
+      <Pie data={data} />
+    </div>
+  );
 };
 
 export default PresencePieChart;

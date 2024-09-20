@@ -54,21 +54,26 @@ import user from '/home/wecode/Rendu/P1-DEV-DAT-03-facial-recognition/Front_End/
 //    }, []);
 const Header = () => {
    const [data, setData] = useState([]);
-
-   useEffect(() => {
-      const token = localStorage.getItem('access_token');
-      if (token) {
-         axios.get('http://127.0.0.1:8000/api/tasks/', {
-            headers: {
-               'Authorization': `Bearer ${token}`
-            }
-         })
-         .then(res => setData(res.data))
-         .catch(err => console.log(err));
-      } else {
-         console.log("Pas de token d'acces dans le localStorage");
-      }
-   }, []);
+   
+      useEffect(() => {
+         const token = localStorage.getItem('access_token');
+         if (token) {
+             axios.get('http://127.0.0.1:8000/api/tasks/', {
+                 headers: {
+                     'Authorization': `Bearer ${token}`
+                 }
+             })
+             .then(res => {
+                 setData(res.data);
+                 console.log(res.data);
+                 const nbr = res.data.length; // Récupérer la longueur des données
+                 console.log(nbr); // Afficher la longueur
+             })
+             .catch(err => console.log(err));
+         } else {
+             console.log("Pas de token d'accès dans le localStorage");
+         }
+     }, []);
 
    // useEffect(() => {
    //    const token = localStorage.getItem('token') 
