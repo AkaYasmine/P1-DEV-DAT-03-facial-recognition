@@ -17,7 +17,7 @@ const Header = () => {
                         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                             <ul class="space-y-2 font-medium">
                                 <li>
-                                    <a href="./Home" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="./Interface" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <img src="https://zupimages.net/up/24/38/988w.png" alt="Dashboard" class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                                         <span class="ms-3">Dashboard</span>
                                     </a>

@@ -14,6 +14,7 @@ import Interface from './components/Public/Interface';
 import PresencePieChart from './components/Public/PresencePieChart';
 import UserChart from './components/Public/UserChart';
 import  Homepage from './components/Public/Homepage';
+import SuperAdmin from './components/Public/SuperAdmin';
 
 function App() {
   return (
@@ -32,8 +33,8 @@ function App() {
             <Route path ="/Interface" element={<Interface/>}/>
             <Route path ="/PresencePieChart"element= {<PresencePieChart/>}/>
             <Route path= "/UserChart" element={<UserChart/>}/>
-
             <Route path = "/Homepage" element={<Homepage/>}/>
+            <Route path = "/SuperAdmin" element={<SuperAdmin/>}/>
             {/* <Route path ='/genere_password' element={<genere_password/>}/> */}
             <Route path ="*" element={<Errors/>}/>
             
