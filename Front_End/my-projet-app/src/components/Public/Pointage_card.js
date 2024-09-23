@@ -1,6 +1,25 @@
 import React from 'react';
+import axios from 'axios'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const Pointage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+     const token = localStorage.getItem('access_token');
+     if (token) {
+        axios.get('http://127.0.0.1:8000/api/tasks/', {
+           headers: {
+              'Authorization': `Bearer ${token}`
+           }
+        })
+           .then(res => setData(res.data))
+           .catch(err => console.log(err));
+     } else {
+        console.log("Pas de token d'accès dans le localStorage");
+     }
+  }, []);
   return (
     <div>
       <body>
@@ -39,29 +58,32 @@ const Pointage = () => {
                             <th class="px-5 py-3">Status</th>
                           </tr>
                         </thead>
+
                         <tbody class="text-gray-500">
-                          <tr>
+                          {data.map((d, i) => (
+                            
+                          <tr key = {i}>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap">1</p>
+                              <p class="whitespace-no-wrap"></p>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                               <div class="flex items-center">
                                 <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-full w-full rounded-full" src="/images/-ytzjgg6lxK1ICPcNfXho.png" alt="" />
+                                  <img class="h-full w-full rounded-full" src={` ${d.photo}`}  alt="" />
                                 </div>
                                 <div class="ml-3">
-                                  <p class="whitespace-no-wrap">Besique Monroe</p>
+                                  <p class="whitespace-no-wrap">{d.nom}</p>
                                 </div>
                               </div>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap">Alice</p>
+                              <p class="whitespace-no-wrap">{d.prenom}</p>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"> Alice@gmail.com</p>
+                              <p class="whitespace-no-wrap">{d.email}</p>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"> +225 07 04 00 56 30</p>
+                              <p class="whitespace-no-wrap"> {d.contact}</p>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                               <p class="whitespace-no-wrap"> 15 sept , 2024</p>
@@ -73,39 +95,7 @@ const Pointage = () => {
                               <span class="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">Présent</span>
                             </td>
                           </tr>
-                          <tr>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap">2</p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <div class="flex items-center">
-                                <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-full w-full rounded-full" src="/images/-ytzjgg6lxK1ICPcNfXho.png" alt="" />
-                                </div>
-                                <div class="ml-3">
-                                  <p class="whitespace-no-wrap">Besique Monroe</p>
-                                </div>
-                              </div>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap">Alice</p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"> Alice@gmail.com</p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"> +225 07 04 00 56 30</p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"> 15 sept , 2024</p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap">  </p>
-                            </td>
-                            <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <span class="rounded-full bg-red-200 px-3 py-1 text-xs font-semibold text-green-900">Abscent</span>
-                            </td>
-                          </tr>
+                            ))}
                         </tbody>
                       </table>
                     </div>
