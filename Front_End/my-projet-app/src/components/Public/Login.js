@@ -1,35 +1,58 @@
-// Import the react JS packages 
 import axios from "axios";
-import { useState } from "react";// Define the Login function.
+import { useState } from "react"; 
 
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Create the submit method.
+ 
   const submit = async e => {
     e.preventDefault();
+    
     const user = {
       username: username,
       password: password
     };
-
-    // Create the POST request
-    const { data } = await
-      axios.post('http://localhost:8000/api/token/',
-        user, { headers: { 'Content-Type': 'application/json' } }
-      )
-    // Initialize the access & refresh token in localstorage.      
-    localStorage.clear();
-    localStorage.setItem('access_token', data.access);
-    localStorage.setItem('refresh_token', data.refresh);
-
-    axios.defaults.headers.common['Authorization'] =
-      `Bearer ${data['access']}`;
-    window.location.href = '/Gestion_employés'
-
-  }
+  
+    try {
+      //  requête POST pour obtenir les tokens
+      const { data } = await axios.post(
+        'http://localhost:8000/api/token/',
+        user,
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+  
+      // Stocker les tokens dans localStorage
+      localStorage.clear();
+      localStorage.setItem('access_token', data.access);
+      localStorage.setItem('refresh_token', data.refresh);
+  
+      // Ajouter l'en-tête Authorization pour les futures requêtes
+      axios.defaults.headers.common['Authorization'] = `Bearer ${data.access}`;
+  
+      // Requête pour obtenir les informations de l'utilisateur (is_superuser)
+      const userInfo = await axios.get('http://localhost:8000/api/user/', {
+        headers: {
+          'Authorization': `Bearer ${data.access}`,
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      const { is_superuser } = userInfo.data;
+  
+      // Redirection en fonction du type d'utilisateur
+      if (is_superuser) {
+        window.location.href = '/Superuser_dashboard';
+      } else {
+         window.location.href = '/Gestion_employés';
+      }
+  
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+      alert('Connexion échouée, veuillez vérifier vos informations.');
+    }
+  };
   return (
 
     <div class="flex justify-center items-center min-h-screen bg-gray-100">

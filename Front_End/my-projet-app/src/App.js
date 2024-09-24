@@ -33,11 +33,12 @@ function App() {
             <Route path ="/Gestion_employés" element={<proteger_route><Gestion_employés/></proteger_route>}/>
             <Route path ="/Pointage_employés" element={<Pointage_employées/>}/>
             <Route path ='/Login' element={<Login/>}/>
-            <Route path ='Register' element={<LogoutPages/>}/>
             <Route path ="/Prise_photo" element={<Prise_photo />}/>
             <Route path ="/Add_employe/" element={<Add_employe />}/>
             <Route path ="/Update_employe/:id" element={<Update_employe />}/>
+            
             {/* <Route path ='/genere_password' element={<genere_password/>}/> */}
+            <Route path ='/Register' element={<LogoutPages/>}/> 
             <Route path ="/Interface" element={<Interface/>}/>
             <Route path ="/AdmissionsBarChart" element= {<AdmissionsBarChart/>}/>
             <Route path ="/PresencePieChart"element= {<PresencePieChart/>}/>

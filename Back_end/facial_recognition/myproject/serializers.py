@@ -6,7 +6,7 @@ import random
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name','last_name','username', 'email', 'password']
+        fields = ['first_name','last_name','username', 'email', 'password','is_superuser']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):

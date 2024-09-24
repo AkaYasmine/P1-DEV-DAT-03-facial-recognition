@@ -76,6 +76,8 @@ const Gestion_employe = () => {
          <body>
             <div>
                <div class="p-4 sm:ml-64">
+               <div><h2 class="text-2xl text-center font-bold mb-4">Interface Administrateur</h2> </div>
+
                   <body class="bg-gray-100">
                      <div class="container mx-auto p-4">
                      <h2 class="text-2xl font-bold mb-6">Gestion des employés</h2>
@@ -199,9 +201,7 @@ const Gestion_employe = () => {
                                        </thead>
 
                                        <tbody>
-                                          {data.map((d, i) => (
-
-
+                                          {data.map((d, i) => ( 
                                              <tr key={i} class="border-b dark:border-white">
                                                 <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-black">{d.id} -</th>
                                                 <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-black">{d.nom}</th>
