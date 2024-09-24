@@ -10,6 +10,8 @@ import LogoutPages from './pages/LogoutPages';
 import Prise_photo from './pages/Prise_photo';
 import Add_employe from './pages/Add_employe';
 import Update_employe from './pages/Update_employe';
+import Superuser_dashboard from './pages/Superuser_dashboard';
+
 // import genere_password from './pages/genere_password';
 import Interface from './pages/Interface';
 import AdmissionsBarChart from './components/Public/AdmissionsBarChart';
@@ -17,6 +19,7 @@ import PresencePieChart from './components/Public/PresencePieChart';
 import PredictionLineChart from './components/Public/PredictionLineChart';
 import UserChart from './components/Public/UserChart';
 import Homepage from './components/Public/Homepage';
+ 
 import RoutesPriveAdmin from './components/Public/RoutesPriveAdmin';
 
  
@@ -41,7 +44,8 @@ function App() {
             <Route path= "/UserChart" element={<UserChart/>}/>
             <Route path= "/PredictionLineChart" element={<PredictionLineChart/>}/>
             <Route path = "/Homepage" element={<Homepage/>}/>
-
+            <Route path = "/Superuser_dashboard" element={<Superuser_dashboard/>}/>
+ 
             <Route path ="*" element={<Errors/>}/>
           </Routes>
         </BrowserRouter>

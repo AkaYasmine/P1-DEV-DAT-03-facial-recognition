@@ -12,4 +12,4 @@ class interface_crud_employe(models.Model):
     photo = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        return self.nom
+        return self.nom 

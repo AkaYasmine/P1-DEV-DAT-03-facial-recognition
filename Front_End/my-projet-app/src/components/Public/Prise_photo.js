@@ -15,8 +15,7 @@ const Header = () => {
                    CameraCameraCamera <br></br> <hr></hr>
                    CameraCameraCameraCamera
                   </div>
-               </div>
-                    
+               </div>       
             </div>
          </body>
       </div>
