@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'myproject',
     'InscriptionAdmin',
     "interface_crud_employe",
+    
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
