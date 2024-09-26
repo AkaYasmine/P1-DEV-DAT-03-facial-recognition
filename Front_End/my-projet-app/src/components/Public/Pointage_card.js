@@ -65,7 +65,7 @@ const Pointage = () => {
                             
                           <tr key = {i}>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                              <p class="whitespace-no-wrap"></p>
+                              <p class="whitespace-no-wrap">{d.id}</p>
                             </td>
                             <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                               <div class="flex items-center">
